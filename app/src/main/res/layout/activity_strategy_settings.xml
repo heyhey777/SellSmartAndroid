@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profit Taking (%)"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etProfitTaking1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Profit Taking 1" />
+
+        <EditText
+            android:id="@+id/etProfitTaking2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Profit Taking 2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop Loss (%)"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/etStopLoss1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Stop Loss 1" />
+
+        <EditText
+            android:id="@+id/etStopLoss2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Stop Loss 2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share Percentages (%)"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/etSharePercentage1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Share Percentage 1" />
+
+        <EditText
+            android:id="@+id/etSharePercentage2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Share Percentage 2" />
+
+        <EditText
+            android:id="@+id/etSharePercentage3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Share Percentage 3" />
+
+        <EditText
+            android:id="@+id/etSharePercentage4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Share Percentage 4" />
+
+        <Button
+            android:id="@+id/btnSaveStrategy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save Strategy"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>
