@@ -1,96 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profit Taking (%)"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/etProfitTaking1"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilStrategyName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="Profit Taking 1" />
+            android:hint="Strategy Name"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/etProfitTaking2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="Profit Taking 2" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etStrategyName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/tvProfitTakingHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stop Loss (%)"
+            android:layout_marginTop="24dp"
+            android:text="Profit Taking"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilStrategyName" />
 
-        <EditText
-            android:id="@+id/etStopLoss1"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilProfitTaking1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="Stop Loss 1" />
+            android:layout_marginTop="8dp"
+            android:hint="Profit % (1)"
+            app:layout_constraintEnd_toStartOf="@+id/tilSharePercentage1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProfitTakingHeader">
 
-        <EditText
-            android:id="@+id/etStopLoss2"
-            android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etProfitTaking1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilSharePercentage1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="Stop Loss 2" />
+            android:layout_marginStart="8dp"
+            android:hint="Share % (1)"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tilProfitTaking1"
+            app:layout_constraintTop_toTopOf="@+id/tilProfitTaking1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSharePercentage1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilProfitTaking2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Profit % (2)"
+            app:layout_constraintEnd_toStartOf="@+id/tilSharePercentage2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilProfitTaking1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etProfitTaking2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilSharePercentage2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:hint="Share % (2)"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tilProfitTaking2"
+            app:layout_constraintTop_toTopOf="@+id/tilProfitTaking2">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSharePercentage2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/tvStopLossHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Share Percentages (%)"
+            android:layout_marginTop="24dp"
+            android:text="Stop Loss"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilProfitTaking2" />
 
-        <EditText
-            android:id="@+id/etSharePercentage1"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilStopLoss1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="Share Percentage 1" />
+            android:layout_marginTop="8dp"
+            android:hint="Stop Loss % (1)"
+            app:layout_constraintEnd_toStartOf="@+id/tilSharePercentage3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvStopLossHeader">
 
-        <EditText
-            android:id="@+id/etSharePercentage2"
-            android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etStopLoss1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilSharePercentage3"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="Share Percentage 2" />
+            android:layout_marginStart="8dp"
+            android:hint="Share % (3)"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tilStopLoss1"
+            app:layout_constraintTop_toTopOf="@+id/tilStopLoss1">
 
-        <EditText
-            android:id="@+id/etSharePercentage3"
-            android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSharePercentage3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilStopLoss2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="Share Percentage 3" />
+            android:layout_marginTop="8dp"
+            android:hint="Stop Loss % (2)"
+            app:layout_constraintEnd_toStartOf="@+id/tilSharePercentage4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilStopLoss1">
 
-        <EditText
-            android:id="@+id/etSharePercentage4"
-            android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etStopLoss2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilSharePercentage4"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="Share Percentage 4" />
+            android:layout_marginStart="8dp"
+            android:hint="Share % (4)"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tilStopLoss2"
+            app:layout_constraintTop_toTopOf="@+id/tilStopLoss2">
 
-        <Button
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSharePercentage4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvTotalSharePercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Total Share Percentage: 0%"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilStopLoss2" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSaveStrategy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:text="Save Strategy"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTotalSharePercentage" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

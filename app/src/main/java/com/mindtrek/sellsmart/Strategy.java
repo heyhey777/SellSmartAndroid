@@ -19,9 +19,11 @@ public class Strategy {
     private List<StrategyStep> profitTakingSteps;
     private List<StrategyStep> stopLossSteps;
     private SharedPreferences sharedPreferences;
+    private String currentStrategyName;
 
     public Strategy(Context context) {
         sharedPreferences = context.getSharedPreferences("StrategyPrefs", Context.MODE_PRIVATE);
+        currentStrategyName = sharedPreferences.getString("currentStrategy", "Default");
         loadStrategy();
     }
 
@@ -30,21 +32,21 @@ public class Strategy {
         stopLossSteps = new ArrayList<>();
 
         profitTakingSteps.add(new StrategyStep(
-                sharedPreferences.getFloat("profitTaking1", 10f) / 100,
-                sharedPreferences.getFloat("sharePercentage1", 25f) / 100
+                sharedPreferences.getFloat(currentStrategyName + "_profitTaking1", 10f) / 100,
+                sharedPreferences.getFloat(currentStrategyName + "_sharePercentage1", 25f) / 100
         ));
         profitTakingSteps.add(new StrategyStep(
-                sharedPreferences.getFloat("profitTaking2", 20f) / 100,
-                sharedPreferences.getFloat("sharePercentage2", 25f) / 100
+                sharedPreferences.getFloat(currentStrategyName + "_profitTaking2", 20f) / 100,
+                sharedPreferences.getFloat(currentStrategyName + "_sharePercentage2", 25f) / 100
         ));
 
         stopLossSteps.add(new StrategyStep(
-                sharedPreferences.getFloat("stopLoss1", 10f) / 100,
-                sharedPreferences.getFloat("sharePercentage3", 25f) / 100
+                sharedPreferences.getFloat(currentStrategyName + "_stopLoss1", 10f) / 100,
+                sharedPreferences.getFloat(currentStrategyName + "_sharePercentage3", 25f) / 100
         ));
         stopLossSteps.add(new StrategyStep(
-                sharedPreferences.getFloat("stopLoss2", 20f) / 100,
-                sharedPreferences.getFloat("sharePercentage4", 25f) / 100
+                sharedPreferences.getFloat(currentStrategyName + "_stopLoss2", 20f) / 100,
+                sharedPreferences.getFloat(currentStrategyName + "_sharePercentage4", 25f) / 100
         ));
     }
 
@@ -54,5 +56,9 @@ public class Strategy {
 
     public List<StrategyStep> getStopLossSteps() {
         return stopLossSteps;
+    }
+
+    public String getCurrentStrategyName() {
+        return currentStrategyName;
     }
 }
